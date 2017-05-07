@@ -90,3 +90,77 @@
 #
 # foo(1, 2, 3)
 
+group = [
+('Александр Скворцов', '1,1,1,1,1,1,1,0,1,0,1,0,0,1,0,1,1,0,0,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0'),
+('Андрей Рожко', '1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0'),
+('Алексей Кулишенко', '0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0'),
+('Виталий Рыжков', '1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0'),
+('Виталина Гавеля', '1,1,1,1,1,1,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0'),
+('Виктор Бурлаков', '1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0'),
+('Виктор Горовой', '1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0'),
+('Надежда Симанович', '1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0'),
+('Николай Марушевский', '1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0'),
+('Андрей Кравчук', '1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0'),
+('Екатерина Шадрина', '1,1,1,1,1,1,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0'),
+('Александр Малышев', '1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0'),
+('Владимир Веренчук', '0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0')
+]
+
+def print_full_names(group):
+    for student in group:
+        name = student[0]
+        rank = student[1]
+        print()
+# print_full_names(group)
+
+def print_full_reverse_names(group):
+    for student in group:
+            full_name = student[0]
+            lst_full_name = full_name.split()
+            fist_name = lst_full_name[0]
+            second_name = lst_full_name[1]
+            print(second_name, fist_name)
+# print_full_reverse_names(group)
+
+def print_full_names_sorted(group):
+    def sort_by_surname(elem):
+        return elem.split()[1] + " " + elem.split()[0]
+    lst_student = []
+    for student in group:
+        lst_student.append(student[0])
+    lst_student.sort(key=sort_by_surname)
+    print(lst_student)
+
+# print_full_names_sorted(group)
+
+def print_ranks(group):
+    for rank in group:
+            all_rank = rank[1]
+            lst_all_rank = all_rank.split(",")
+            rank_total = lst_all_rank.count('1')
+
+            print(rank[0], rank_total)
+
+# print_ranks(group)
+
+def get_ranks_sorted(group):
+    def sort_by_surname(elem):
+        return elem.split()[2] + " " + elem.split()[0]
+    lst_name_and_rank_total = []
+    for elem in group:
+        name = elem[0]
+        all_rank = elem[1]
+        lst_all_rank = all_rank.split(",")
+        rank_total = lst_all_rank.count('1')
+        name_and_rank_total = name + " " + str(rank_total)
+
+        lst_name_and_rank_total.append(name_and_rank_total)
+        lst_name_and_rank_total.sort(key=sort_by_surname)
+        # lst_name_and_rank_total
+
+        print(name_and_rank_total)
+
+get_ranks_sorted(group)
+
+def print_top_n(students_rank, n):
+    pass
